@@ -6,7 +6,7 @@ import { classExpression } from '@babel/types';
 import logo from '../../assets/commerce.png';
 import useStyles from './styles';
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   const classes = useStyles();
   return (
     <>
@@ -31,7 +31,7 @@ const Navbar = () => {
               color="inherit"
             >
               <Badge
-                badgeContent={2}
+                badgeContent={totalItems}
                 color="secondary"
               >
                 <ShoppingCart />
