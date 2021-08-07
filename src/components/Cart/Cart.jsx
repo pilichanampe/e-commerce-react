@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
-import { classes } from 'istanbul-lib-coverage';
+
+import useStyles from './styles';
 
 const Cart = ({ cart }) => {
-  const isEmpty = !cart.line_items.length;
+  const isEmpty = false;
+  const classes = useStyles();
 
   const EmptyCart = () => (
     <Typography variant="subtitle1">You have no items in your shopping cart, start adding some!</Typography>
@@ -25,7 +27,7 @@ const Cart = ({ cart }) => {
     </Grid>
     <div className={classes.cardDetails}>
         <Typography variant="h4">
-          Subtotal: { cart.subtotal.formatted_with_symbol}
+          Subtotal: { cart.subtotal.formatted_with_symbol }
         </Typography>
         <div>
           <Button
@@ -63,7 +65,7 @@ const Cart = ({ cart }) => {
       >
         Your Shopping Cart
       </Typography>
-      { isEmpty ? <EmptyCard /> : <FilledCart />}
+      { isEmpty ? <EmptyCart /> : <FilledCart />}
     </Container>
   )
 }
